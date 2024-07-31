@@ -38,7 +38,6 @@ jobs:
 
       - name: Configure Git
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
