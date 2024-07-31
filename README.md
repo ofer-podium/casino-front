@@ -8,18 +8,7 @@ Welcome to the official repository for the Casino-Frontend project. This project
 - [Core Features](#core-features)
 - [Tech Stack](#tech-stack)
 - [Considerations](#considerations)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Deployment](#deployment)
-- [Continuous Integration and Deployment](#continuous-integration-and-deployment)
-- [Development Guidelines](#development-guidelines)
-  - [Project Structure](#project-structure)
-  - [Testing](#testing)
-  - [Future Development](#future-development)
-  - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Project Overview
 
