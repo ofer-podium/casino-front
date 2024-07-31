@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# Casino-Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the official repository for the Casino-Frontend project. This project leverages the power of React and TypeScript to deliver a cutting-edge user interface for our casino platform. Our robust CI/CD pipeline, managed through GitHub Actions, ensures seamless deployment to GitHub Pages.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Project Overview](#project-overview)
+- [Core Features](#core-features)
+- [Tech Stack](#tech-stack)
+- [Considerations](#considerations)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Overview
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The Casino-Frontend project is a state-of-the-art web application designed to enhance the user experience on our casino platform. Built with React and TypeScript, this project ensures high performance, scalability, and maintainability.
 
-### `npm test`
+## Core Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Responsive UI/UX**: Ensures an optimal experience across all devices.
+- **TypeScript**: Provides robust type-checking, reducing runtime errors.
+- **Automated CI/CD**: Streamlines the development and deployment process via GitHub Actions.
+- **GitHub Pages**: Facilitates easy and reliable hosting of the application.
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **Material-UI**: A popular React UI framework for building responsive and modern interfaces.
+- **GitHub Actions**: For CI/CD pipelines to automate the build and deployment process.
+- **GitHub Pages**: For hosting the static files of the application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Considerations
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Why React and TypeScript?
 
-### `npm run eject`
+React is chosen for its component-based architecture, which enhances reusability and maintainability. TypeScript is incorporated to leverage static typing, which reduces the likelihood of runtime errors and improves code quality. This combination allows for building robust and scalable applications.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Material-UI
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Material-UI is selected for its comprehensive set of pre-designed components, which speeds up the development process while ensuring a consistent look and feel across the application. Its theming capabilities also allow for easy customization to match the branding requirements.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### GitHub Actions and Pages
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+GitHub Actions is employed for its seamless integration with GitHub repositories, allowing us to automate the CI/CD process efficiently. GitHub Pages is used for its simplicity and reliability in hosting static sites, making it an ideal choice for deploying our frontend application.
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Ensure you have the following tools installed:
+
+- [Node.js](https://nodejs.org/en/download/) (v16.x or later)
+- [npm](https://www.npmjs.com/get-npm) (v7.x or later)
+
+### Installation
+
+Follow these steps to set up the project locally:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ofer-podium/casino-front.git
+   cd casino-front
