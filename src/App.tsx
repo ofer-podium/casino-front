@@ -12,8 +12,10 @@ const App: React.FC = () => {
           <AppBarProvider>
           <Router>
             <Routes>
-              <Route path="/" element={<MainPage />}/>
-              {/* <Route path="/main" element={<PrivateRoute element={<CameraDisplayPage />} />} /> */}
+              <Route path="/casino-front" element={<MainPage />}/>
+              {/* 404 route: */}
+              <Route path="*" element={<div>404</div>} />
+              
             </Routes>
           </Router>
           </AppBarProvider>
