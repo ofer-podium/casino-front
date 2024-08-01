@@ -4,6 +4,8 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import { defaultTheme } from './themes';
 import { AppBarProvider } from './contexts/AppBarProvider';
 import MainPage from './pages/Main'
+import './translation/config';
+
 
 const theme = createTheme(defaultTheme);
 const App: React.FC = () => {
