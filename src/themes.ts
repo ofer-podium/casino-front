@@ -95,6 +95,7 @@ import { createTheme } from '@mui/material';
   },
   });
 
+
   const casinoTheme = createTheme({
     typography: {
       fontFamily: '"Montserrat", "Roboto", "Arial", sans-serif',
@@ -191,7 +192,6 @@ import { createTheme } from '@mui/material';
       },
     },
   });
-  
 
     enum headerColor {
       red= '#ff385c',

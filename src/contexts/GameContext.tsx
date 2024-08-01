@@ -1,34 +1,32 @@
-import React, { createContext, useState, ReactNode } from 'react';
+// src/contexts/GameContext.tsx
+import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 type GameContextType = {
+  sessionId: string | null;
   credits: number;
-  rollSlots: () => void;
-  cashOut: () => void;
+  spins: number;
+  setSessionId: React.Dispatch<React.SetStateAction<string | null>>;
+  setCredits: React.Dispatch<React.SetStateAction<number>>;
+  setSpins: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export const GameContext = createContext<GameContextType>({
-  credits: 0,
-  rollSlots: () => {},
-  cashOut: () => {},
-});
+const GameContext = createContext<GameContextType | undefined>(undefined);
 
-type GameProviderProps = {
-  children: ReactNode;
+export const useGame = () => {
+  const context = useContext(GameContext);
+  if (context === undefined) {
+    throw new Error('useGame must be used within a GameProvider');
+  }
+  return context;
 };
 
-export const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
+export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const [credits, setCredits] = useState(10);
-
-  const rollSlots = () => {
-    // Implement slot rolling logic
-  };
-
-  const cashOut = () => {
-    // Implement cash out logic
-  };
+  const [spins, setSpins] = useState(0);
 
   return (
-    <GameContext.Provider value={{ credits, rollSlots, cashOut }}>
+    <GameContext.Provider value={{ sessionId, credits, spins, setSessionId, setCredits, setSpins }}>
       {children}
     </GameContext.Provider>
   );

@@ -1,4 +1,3 @@
-// src/contexts/AppBarContext.tsx
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface AppBarContextType {
@@ -6,8 +5,8 @@ interface AppBarContextType {
   setTitle: (title: string) => void;
   headerColor: string;
   setHeaderColor: (color: string) => void;
-  backNavigation: string | null;
-  setBackNavigation: (path: string | null) => void;
+  backNavigation: string | null; // For later use => will be used to navigate back to the previous page/desired page 🔜
+  setBackNavigation: (path: string | null) => void; // For later use => will be used to navigate back to the previous page/desired page 🔜
 }
 
 const AppBarContext = createContext<AppBarContextType | undefined>(undefined);

@@ -1,0 +1,9 @@
+{
+    "example_with_parameter": "Welcome {{name}}, to react using react-i18next fully type-safe",
+    "example_with_nesting": {
+      "part1": "This is a simple example.",
+      "part2": "😉"
+    } ,
+    "Welcome to Bellagio Casino":"test"
+    
+  }
