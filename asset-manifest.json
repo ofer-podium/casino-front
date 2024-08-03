@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/casino-front/static/js/main.9006eb28.js",
+    "main.js": "/casino-front/static/js/main.efd24ba6.js",
     "index.html": "/casino-front/index.html",
-    "main.9006eb28.js.map": "/casino-front/static/js/main.9006eb28.js.map"
+    "main.efd24ba6.js.map": "/casino-front/static/js/main.efd24ba6.js.map"
   },
   "entrypoints": [
-    "static/js/main.9006eb28.js"
+    "static/js/main.efd24ba6.js"
   ]
 }
