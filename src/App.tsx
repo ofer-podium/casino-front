@@ -7,6 +7,7 @@ import MainPage from './pages/Main'
 import './translation/config';
 import { GameProvider } from './contexts/GameContext';
 import { AlertProvider } from './contexts/AlertContext';
+import './i18n';
 
 
 const theme = createTheme(casinoTheme);

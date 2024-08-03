@@ -1,6 +1,7 @@
 // src/contexts/AlertContext.tsx
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { Snackbar, Alert as MuiAlert, AlertColor, SnackbarCloseReason } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 type AlertContextType = {
   showAlert: (message: string, severity: AlertColor) => void;
@@ -17,12 +18,13 @@ export const useAlert = () => {
 };
 
 export const AlertProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
   const [severity, setSeverity] = useState<AlertColor>('success');
 
   const showAlert = (message: string, severity: AlertColor) => {
-    setMessage(message);
+    setMessage(t(message));
     setSeverity(severity);
     setOpen(true);
   };

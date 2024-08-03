@@ -53,6 +53,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       const response = await spinSlots(sessionId);
       setSpins(prevSpins => prevSpins + 1);
       setCredits(prevCredits => prevCredits -1);
+
       return response.data;
     } catch (error) {
       console.error('An error occurred while spinning the slots', error);

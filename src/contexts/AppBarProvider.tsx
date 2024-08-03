@@ -1,3 +1,8 @@
+// Explanation: 
+// This component will allow us to change the title of the AppBar from any component in the app.
+// We can also change the color of the AppBar from any component in the app.
+// We can also set the backNavigation path from any component in the app.
+// This will be useful when we want to navigate back to the previous page or to a desired page.
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface AppBarContextType {
@@ -5,8 +10,8 @@ interface AppBarContextType {
   setTitle: (title: string) => void;
   headerColor: string;
   setHeaderColor: (color: string) => void;
-  backNavigation: string | null; // For later use => will be used to navigate back to the previous page/desired page 🔜
-  setBackNavigation: (path: string | null) => void; // For later use => will be used to navigate back to the previous page/desired page 🔜
+  backNavigation: string | null; 
+  setBackNavigation: (path: string | null) => void;
 }
 
 const AppBarContext = createContext<AppBarContextType | undefined>(undefined);

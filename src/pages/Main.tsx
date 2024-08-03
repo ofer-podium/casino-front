@@ -19,7 +19,6 @@ const MainPage: React.FC = () => {
     if (!sessionInitialized.current) {
       sessionInitialized.current = true;
       handleNewSession();
-      showAlert('Welcome to Belagio Casino!', 'success');
     }
   }, [handleNewSession, setTitle, showAlert]); // Add dependencies here
 

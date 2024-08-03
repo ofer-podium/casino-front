@@ -1,29 +1,31 @@
-// src/components/general/NewGameButton.tsx
 import React from 'react';
 import { Button, Box } from '@mui/material';
 import { useGame } from '../../contexts/GameContext';
 import { useAlert } from '../../contexts/AlertContext';
+import { useTranslation } from 'react-i18next';
 
 const NewGameButton: React.FC = () => {
-  const { handleNewSession, isGameRunning, spins,setAreButtonsDisabled } = useGame();
+  const { t } = useTranslation();
+  const { handleNewSession, isGameRunning, setAreButtonsDisabled, credits } = useGame();
   const { showAlert } = useAlert();
 
   const startNewGame = () => {
     handleNewSession();
     setAreButtonsDisabled(false);
-    showAlert('A new game has started!', 'success');
+    showAlert('new_game', 'success');
   };
+
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',}}>
       <Button
-        disabled={isGameRunning || spins === 0}
+        disabled={(isGameRunning) && (credits !== 0)}
         variant="contained"
         color="secondary"
         onClick={startNewGame}
         sx={{ backgroundColor: '#FFD700', color: '#000', '&:hover': { backgroundColor: '#E6C200' } }}
       >
-        New Game
+        {t('new_game')}
       </Button>
     </Box>
   );
