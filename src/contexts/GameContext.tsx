@@ -36,6 +36,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       const response = await startSession();    
       setSessionId(response.data.token);
       setCredits(response.data.currentCredits);
+      setSpins(0);
     } catch (error) {
       console.error('An error occurred while starting a new session', error);
     }
@@ -47,7 +48,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       setAreButtonsDisabled(true);
       const response = await spinSlots(sessionId);
       setSpins(prevSpins => prevSpins + 1);
-      setCredits(response.data.currentCredits);
+      setCredits(prevCredits => prevCredits -1);
       return response.data;
     } catch (error) {
       console.error('An error occurred while spinning the slots', error);
@@ -61,7 +62,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       setCredits(0);
       setAreButtonsDisabled(true);
       const response = await cashOut(sessionId);
-      alert(`You cashed out ${response.data.prize} credits!`);
+      return response.data.prize;
     } catch (error) {
       console.error('An error occurred while cashing out', error);
     }

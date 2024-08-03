@@ -5,6 +5,7 @@ import { Container } from '@mui/material';
 import SlotMachine from '../components/SlotMachine/SlotMachine';
 import GameStats from '../components/stats/GameStats';
 import CashOut from '../components/general/CashOut';
+import NewGameButton from '../components/general/NewGameButton';
 import { useGame } from '../contexts/GameContext';
 import { useAlert } from '../contexts/AlertContext';
 
@@ -29,6 +30,7 @@ const MainPage: React.FC = () => {
         <GameStats />
         <SlotMachine />
         <CashOut />
+        <NewGameButton />
       </Container>
     </Layout>
   );
