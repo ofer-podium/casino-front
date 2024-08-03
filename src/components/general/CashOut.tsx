@@ -13,7 +13,7 @@ const CashOut: React.FC = () => {
   }
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center'}}>
       <Button
         variant="contained"
         color="secondary"

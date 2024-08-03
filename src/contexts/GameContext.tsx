@@ -6,6 +6,8 @@ type GameContextType = {
   credits: number;
   spins: number;
   areButtonsDisabled: boolean;
+  isGameRunning: boolean;
+  setIsGameRunning: React.Dispatch<React.SetStateAction<boolean>>;
   setAreButtonsDisabled: React.Dispatch<React.SetStateAction<boolean>>;
   setSessionId: React.Dispatch<React.SetStateAction<string | null>>;
   setCredits: React.Dispatch<React.SetStateAction<number>>;
@@ -29,11 +31,13 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [credits, setCredits] = useState(10);
   const [spins, setSpins] = useState(0);
+  const [isGameRunning, setIsGameRunning] = useState(false);
   const [areButtonsDisabled, setAreButtonsDisabled] = useState(false);
 
   const handleNewSession = async () => {
     try {
       const response = await startSession();    
+      setIsGameRunning(true);
       setSessionId(response.data.token);
       setCredits(response.data.currentCredits);
       setSpins(0);
@@ -61,6 +65,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     try {
       setCredits(0);
       setAreButtonsDisabled(true);
+      setIsGameRunning(false);
       const response = await cashOut(sessionId);
       return response.data.prize;
     } catch (error) {
@@ -69,7 +74,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   return (
-    <GameContext.Provider value={{ sessionId, credits, spins,areButtonsDisabled, setSessionId, setCredits, setSpins, handleNewSession, handleSpin, handleCashOut, setAreButtonsDisabled }}>
+    <GameContext.Provider value={{ sessionId, credits, spins,areButtonsDisabled,isGameRunning, setSessionId, setCredits, setSpins, handleNewSession, handleSpin, handleCashOut, setAreButtonsDisabled, setIsGameRunning }}>
       {children}
     </GameContext.Provider>
   );

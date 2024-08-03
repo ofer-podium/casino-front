@@ -42,10 +42,6 @@ const SlotMachine: React.FC = () => {
         setCredits(response.currentCredits);
         setAreButtonsDisabled(false);
       }, 3000);
-
-      setTimeout(() => {
-        setCelebration(false);
-      }, 9000);
     } catch (error) {
       console.error('An error occurred while spinning the slots', error);
       setAreButtonsDisabled(false);
