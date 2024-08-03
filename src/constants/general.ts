@@ -1,8 +1,8 @@
 enum Languages {
-    ENGLISH = 'en',
-    ESPANOL = 'es',
-    FRANCAIS = 'fr',
-    HEBREW = 'heb',
+    ENGLISH = 'English',
+    ESPANOL = 'Español',
+    FRANCAIS = 'Français',
+    HEBREW = 'עברית',
 }
 
 enum AlertSeverity {
