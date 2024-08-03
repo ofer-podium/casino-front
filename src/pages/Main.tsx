@@ -21,15 +21,15 @@ const MainPage: React.FC = () => {
       handleNewSession();
       showAlert('Welcome to Belagio Casino!', 'success');
     }
-  }, []);
+  }, [handleNewSession, setTitle, showAlert]); // Add dependencies here
 
   return (
     <Layout>
       <Container maxWidth="sm" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <GameStats />
         <SlotMachine />
-        <Divider sx={{ width: '100%', my:4,backgroundColor:'#FFD700' }} />
-        <ControlButtons/>
+        <Divider sx={{ width: '100%', my: 4, backgroundColor: '#FFD700' }} />
+        <ControlButtons />
       </Container>
     </Layout>
   );
