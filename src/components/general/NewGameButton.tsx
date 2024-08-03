@@ -3,6 +3,8 @@ import { Button, Box } from '@mui/material';
 import { useGame } from '../../contexts/GameContext';
 import { useAlert } from '../../contexts/AlertContext';
 import { useTranslation } from 'react-i18next';
+import { COLOR_PALLETE } from '../../themes';
+import { AlertSeverity } from '../../constants/general';
 
 const NewGameButton: React.FC = () => {
   const { t } = useTranslation();
@@ -12,7 +14,7 @@ const NewGameButton: React.FC = () => {
   const startNewGame = () => {
     handleNewSession();
     setAreButtonsDisabled(false);
-    showAlert('new_game', 'success');
+    showAlert('new_game', AlertSeverity.SUCCESS);
   };
 
 
@@ -23,7 +25,7 @@ const NewGameButton: React.FC = () => {
         variant="contained"
         color="secondary"
         onClick={startNewGame}
-        sx={{ backgroundColor: '#FFD700', color: '#000', '&:hover': { backgroundColor: '#E6C200' } }}
+        sx={{ backgroundColor: COLOR_PALLETE.gold, color: '#000', '&:hover': { backgroundColor: COLOR_PALLETE.darkGold } }}
       >
         {t('new_game')}
       </Button>

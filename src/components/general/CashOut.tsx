@@ -3,6 +3,8 @@ import { Button, Box } from '@mui/material';
 import { useGame } from '../../contexts/GameContext';
 import { useAlert } from '../../contexts/AlertContext';
 import { useTranslation } from 'react-i18next';
+import { COLOR_PALLETE } from '../../themes';
+import { AlertSeverity } from '../../constants/general';
 
 const CashOut: React.FC = () => {
   const { t } = useTranslation();
@@ -11,7 +13,7 @@ const CashOut: React.FC = () => {
 
   const cashOut = async () => {
     const response = await handleCashOut();
-    showAlert('$$ ' + response + ' $$', 'success');
+    showAlert('$$ ' + response + ' $$', AlertSeverity.SUCCESS);
   }
 
   return (
@@ -22,10 +24,10 @@ const CashOut: React.FC = () => {
         onClick={cashOut}
         disabled={credits === 0 || spins ===0 || areButtonsDisabled}
         sx={{
-          backgroundColor: '#FFD700',
+          backgroundColor: COLOR_PALLETE.gold,
           color: '#000',
           '&:hover': {
-            backgroundColor: '#E6C200',
+            backgroundColor: COLOR_PALLETE.darkGold,
           },
         }}
       >

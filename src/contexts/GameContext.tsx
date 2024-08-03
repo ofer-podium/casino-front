@@ -29,7 +29,7 @@ export const useGame = () => {
 
 export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [credits, setCredits] = useState(10);
+  const [credits, setCredits] = useState(0);
   const [spins, setSpins] = useState(0);
   const [isGameRunning, setIsGameRunning] = useState(false);
   const [areButtonsDisabled, setAreButtonsDisabled] = useState(false);

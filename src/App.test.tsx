@@ -1,3 +1,4 @@
+// FOR FUTURE USE => This is the test file for the App component
 // import { render, screen } from '@testing-library/react';
 import App from './App';
 

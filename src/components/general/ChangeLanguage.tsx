@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Box, FormControl, Select, MenuItem, SelectChangeEvent } from '@mui/material';
+import { Languages } from '../../constants/general';
+import { COLOR_PALLETE } from '../../themes';
 
 const ChangeLanguageDropdown: React.FC = () => {
     const { i18n } = useTranslation();
@@ -21,15 +23,15 @@ const ChangeLanguageDropdown: React.FC = () => {
                     onChange={handleChange}
                     displayEmpty
                     sx={{
-                        backgroundColor: '#FFD700',
+                        backgroundColor: COLOR_PALLETE.gold,
                         color: '#000',
                         '& .MuiSvgIcon-root': { color: '#000' },
                     }}
                 >
-                    <MenuItem value="en">English</MenuItem>
-                    <MenuItem value="heb">עברית</MenuItem>
-                    <MenuItem value="es">Español</MenuItem>
-                    <MenuItem value="fr">Français</MenuItem>
+                    <MenuItem value="en">{Languages.ENGLISH}</MenuItem>
+                    <MenuItem value="heb">{Languages.HEBREW}</MenuItem>
+                    <MenuItem value="es">{Languages.ESPANOL}</MenuItem>
+                    <MenuItem value="fr">{Languages.FRANCAIS}</MenuItem>
                 </Select>
             </FormControl>
         </Box>
