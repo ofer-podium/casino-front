@@ -4,35 +4,34 @@ import Slot from './Slot';
 import { useGame } from '../../contexts/GameContext';
 
 const SlotMachine: React.FC = () => {
-  const { handleSpin } = useGame();
+  const { handleSpin, credits } = useGame();
   const [slots, setSlots] = useState(['C', 'L', 'O']);
   const [spinning, setSpinning] = useState([false, false, false]);
 
   const spinSlots = async () => {
     setSpinning([true, true, true]);
-     const response= await handleSpin();
-     console.log(response,'responseresponseresponse');
-     
+    setSlots(['X', 'X', 'X']);
 
-    setTimeout(() => {
-      setSpinning([false, true, true]);
-      setSlots([getRandomSymbol(), slots[1], slots[2]]);
-    }, 1000);
+    try {
+      const response = await handleSpin();
+      const newSlots = response.sequence
+      setTimeout(() => {
+        setSpinning([false, true, true]);
+        setSlots([newSlots[0], 'X', 'X']);
+      }, 1000);
 
-    setTimeout(() => {
-      setSpinning([false, false, true]);
-      setSlots([slots[0], getRandomSymbol(), slots[2]]);
-    }, 2000);
+      setTimeout(() => {
+        setSpinning([false, false, true]);
+        setSlots([newSlots[0], newSlots[1], 'X']);
+      }, 2000);
 
-    setTimeout(() => {
-      setSpinning([false, false, false]);
-      setSlots([slots[0], slots[1], getRandomSymbol()]);
-    }, 3000);
-  };
-
-  const getRandomSymbol = () => {
-    const symbols = ['C', 'L', 'O', 'W'];
-    return symbols[Math.floor(Math.random() * symbols.length)];
+      setTimeout(() => {
+        setSpinning([false, false, false]);
+        setSlots(newSlots);
+      }, 3000);
+    } catch (error) {
+      console.error('An error occurred while spinning the slots', error);
+    }
   };
 
   return (
@@ -44,7 +43,9 @@ const SlotMachine: React.FC = () => {
           </Grid>
         ))}
         <Grid item>
-          <Button variant="contained" color="primary" onClick={spinSlots} sx={{ height: '100%' }}>
+          <Button 
+        disabled={credits === 0}
+          variant="contained" color="primary" onClick={spinSlots} sx={{ height: '100%' }}>
             Spin
           </Button>
         </Grid>
