@@ -7,6 +7,7 @@ import GameStats from '../components/stats/GameStats';
 import { useGame } from '../contexts/GameContext';
 import { useAlert } from '../contexts/AlertContext';
 import ControlButtons from '../components/general/ControlButtons';
+import { COLOR_PALLETE } from '../themes';
 
 const MainPage: React.FC = () => {
   const { setTitle } = useAppBar();
@@ -19,16 +20,15 @@ const MainPage: React.FC = () => {
     if (!sessionInitialized.current) {
       sessionInitialized.current = true;
       handleNewSession();
-      showAlert('Welcome to Belagio Casino!', 'success');
     }
-  }, [handleNewSession, setTitle, showAlert]); // Add dependencies here
+  }, [handleNewSession, setTitle, showAlert]);
 
   return (
     <Layout>
       <Container maxWidth="sm" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <GameStats />
         <SlotMachine />
-        <Divider sx={{ width: '100%', my: 4, backgroundColor: '#FFD700' }} />
+        <Divider sx={{ width: '100%', my: 4, backgroundColor: COLOR_PALLETE.gold }} />
         <ControlButtons />
       </Container>
     </Layout>

@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import { AppBar, Toolbar, Typography, Box, Container, Grid } from '@mui/material';
 import { useAppBar } from '../../contexts/AppBarProvider';
 import ChangeLanguageDropdown from './ChangeLanguage';
+import { COLOR_PALLETE } from '../../themes';
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,7 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Toolbar>
           <Grid container alignItems="center">
             <Grid item xs={6}>
-              <Typography variant="h6" sx={{ flexGrow: 1, color: '#FFFFFF' }}>
+              <Typography variant="h6" sx={{ flexGrow: 1, color: COLOR_PALLETE.white }}>
                 {title}
               </Typography>
             </Grid>

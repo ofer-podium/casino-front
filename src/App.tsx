@@ -7,6 +7,7 @@ import MainPage from './pages/Main'
 import './translation/config';
 import { GameProvider } from './contexts/GameContext';
 import { AlertProvider } from './contexts/AlertContext';
+import './i18n';
 
 
 const theme = createTheme(casinoTheme);
@@ -15,8 +16,8 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme}>
           <CssBaseline />
           <GameProvider>
-          <AppBarProvider>
-          <AlertProvider>
+          <AppBarProvider> {/* Mainly For Future use => will allow easy navigation between pages */}
+          <AlertProvider> 
           <Router>
             <Routes>
               <Route path="/casino-front" element={<MainPage />}/>
