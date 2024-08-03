@@ -4,7 +4,6 @@ import { createTheme, ThemeProvider,CssBaseline } from '@mui/material';
 import { casinoTheme} from './themes';
 import { AppBarProvider } from './contexts/AppBarProvider';
 import MainPage from './pages/Main'
-import './translation/config';
 import { GameProvider } from './contexts/GameContext';
 import { AlertProvider } from './contexts/AlertContext';
 import './i18n';

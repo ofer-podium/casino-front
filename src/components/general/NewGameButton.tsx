@@ -8,7 +8,7 @@ import { AlertSeverity } from '../../constants/general';
 
 const NewGameButton: React.FC = () => {
   const { t } = useTranslation();
-  const { handleNewSession, isGameRunning, setAreButtonsDisabled, credits } = useGame();
+  const { handleNewSession, isGameRunning, setAreButtonsDisabled, credits,spins } = useGame();
   const { showAlert } = useAlert();
 
   const startNewGame = () => {
@@ -21,7 +21,7 @@ const NewGameButton: React.FC = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',}}>
       <Button
-        disabled={(isGameRunning) && (credits !== 0)}
+        disabled={(isGameRunning && credits !== 0) || spins === 0}
         variant="contained"
         color="secondary"
         onClick={startNewGame}
