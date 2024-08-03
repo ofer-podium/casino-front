@@ -1,38 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Layout from '../components/general/Layout';
 import { useAppBar } from '../contexts/AppBarProvider';
 import { Container } from '@mui/material';
 import SlotMachine from '../components/SlotMachine/SlotMachine';
 import GameStats from '../components/stats/GameStats';
 import CashOut from '../components/general/CashOut';
-import { startSession } from '../api/gameService';
-import {saveInLocalStorage} from '../utils/storage';
+import { useGame } from '../contexts/GameContext';
 
 const MainPage: React.FC = () => {
   const { setTitle } = useAppBar();
-
-  const handleNewSession = async () => {
-    try {
-      const { sessionId } = await startSession();
-      saveInLocalStorage('sessionId', sessionId);
-    } catch (error) {
-      alert('An error occurred while starting a new session');
-    }
-  }
+  const { handleNewSession } = useGame();
+  const sessionInitialized = useRef(false);
 
   useEffect(() => {
     setTitle('BELAGIO CASINO');
-    handleNewSession();
-  }, [setTitle]);
+    if (!sessionInitialized.current) {
+      sessionInitialized.current = true;
+      handleNewSession();
+    }
+  }, []);
 
   return (
-      <Layout>
-        <Container maxWidth="sm" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',  mt: 2 }}>
-          <GameStats />
-          <SlotMachine />
-          <CashOut />
-        </Container>
-      </Layout>
+    <Layout>
+      <Container maxWidth="sm" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 2 }}>
+        <GameStats />
+        <SlotMachine />
+        <CashOut />
+      </Container>
+    </Layout>
   );
 };
 

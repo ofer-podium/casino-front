@@ -4,15 +4,15 @@ import Slot from './Slot';
 import { useGame } from '../../contexts/GameContext';
 
 const SlotMachine: React.FC = () => {
-  const { sessionId, credits } = useGame();
+  const { handleSpin } = useGame();
   const [slots, setSlots] = useState(['C', 'L', 'O']);
   const [spinning, setSpinning] = useState([false, false, false]);
 
-  const handleSpin = async () => {
-    if (!sessionId || credits <= 0) return;
-
+  const spinSlots = async () => {
     setSpinning([true, true, true]);
-    // await rollSlots();
+     const response= await handleSpin();
+     console.log(response,'responseresponseresponse');
+     
 
     setTimeout(() => {
       setSpinning([false, true, true]);
@@ -44,7 +44,7 @@ const SlotMachine: React.FC = () => {
           </Grid>
         ))}
         <Grid item>
-          <Button variant="contained" color="primary" onClick={handleSpin} sx={{ height: '100%' }}>
+          <Button variant="contained" color="primary" onClick={spinSlots} sx={{ height: '100%' }}>
             Spin
           </Button>
         </Grid>
