@@ -6,6 +6,7 @@ import { AppBarProvider } from './contexts/AppBarProvider';
 import MainPage from './pages/Main'
 import './translation/config';
 import { GameProvider } from './contexts/GameContext';
+import { AlertProvider } from './contexts/AlertContext';
 
 
 const theme = createTheme(casinoTheme);
@@ -15,12 +16,14 @@ const App: React.FC = () => {
           <CssBaseline />
           <GameProvider>
           <AppBarProvider>
+          <AlertProvider>
           <Router>
             <Routes>
               <Route path="/casino-front" element={<MainPage />}/>
               <Route path="*" element={<div>404</div>} />
             </Routes>
           </Router>
+          </AlertProvider>
           </AppBarProvider>
           </GameProvider>
       </ThemeProvider>

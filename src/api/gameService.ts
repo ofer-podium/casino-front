@@ -13,7 +13,8 @@ export const spinSlots = async (token: string) => {
   return response.data;
 };
 
-export const cashOut = async (sessionId: string) => {
-  const response = await api.post('/cash-out', { sessionId });
+export const cashOut = async (token: string) => {
+  const url = `/session/${token}/cash-out`;
+  const response = await api.post(url);
   return response.data;
 };

@@ -5,6 +5,8 @@ type GameContextType = {
   sessionId: string | null;
   credits: number;
   spins: number;
+  areButtonsDisabled: boolean;
+  setAreButtonsDisabled: React.Dispatch<React.SetStateAction<boolean>>;
   setSessionId: React.Dispatch<React.SetStateAction<string | null>>;
   setCredits: React.Dispatch<React.SetStateAction<number>>;
   setSpins: React.Dispatch<React.SetStateAction<number>>;
@@ -27,6 +29,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [credits, setCredits] = useState(10);
   const [spins, setSpins] = useState(0);
+  const [areButtonsDisabled, setAreButtonsDisabled] = useState(false);
 
   const handleNewSession = async () => {
     try {
@@ -41,9 +44,8 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const handleSpin = async () => {
     if (!sessionId) return;
     try {
+      setAreButtonsDisabled(true);
       const response = await spinSlots(sessionId);
-      console.log(response.data);
-      
       setSpins(prevSpins => prevSpins + 1);
       setCredits(response.data.currentCredits);
       return response.data;
@@ -56,16 +58,17 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const handleCashOut = async () => {
     if (!sessionId) return;
     try {
+      setCredits(0);
+      setAreButtonsDisabled(true);
       const response = await cashOut(sessionId);
-      setCredits(response.credits);
-      alert(`You cashed out ${response.credits} credits!`);
+      alert(`You cashed out ${response.data.prize} credits!`);
     } catch (error) {
       console.error('An error occurred while cashing out', error);
     }
   };
 
   return (
-    <GameContext.Provider value={{ sessionId, credits, spins, setSessionId, setCredits, setSpins, handleNewSession, handleSpin, handleCashOut }}>
+    <GameContext.Provider value={{ sessionId, credits, spins,areButtonsDisabled, setSessionId, setCredits, setSpins, handleNewSession, handleSpin, handleCashOut, setAreButtonsDisabled }}>
       {children}
     </GameContext.Provider>
   );

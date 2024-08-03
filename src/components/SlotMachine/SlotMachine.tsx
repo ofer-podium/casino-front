@@ -4,7 +4,7 @@ import Slot from './Slot';
 import { useGame } from '../../contexts/GameContext';
 
 const SlotMachine: React.FC = () => {
-  const { handleSpin, credits } = useGame();
+  const { handleSpin, credits,areButtonsDisabled,setAreButtonsDisabled } = useGame();
   const [slots, setSlots] = useState(['C', 'L', 'O']);
   const [spinning, setSpinning] = useState([false, false, false]);
 
@@ -14,6 +14,8 @@ const SlotMachine: React.FC = () => {
 
     try {
       const response = await handleSpin();
+      console.log(response);
+      
       const newSlots = response.sequence
       setTimeout(() => {
         setSpinning([false, true, true]);
@@ -28,7 +30,10 @@ const SlotMachine: React.FC = () => {
       setTimeout(() => {
         setSpinning([false, false, false]);
         setSlots(newSlots);
+        setAreButtonsDisabled(false);
       }, 3000);
+
+
     } catch (error) {
       console.error('An error occurred while spinning the slots', error);
     }
@@ -44,7 +49,7 @@ const SlotMachine: React.FC = () => {
         ))}
         <Grid item>
           <Button 
-        disabled={credits === 0}
+          disabled={credits === 0 || areButtonsDisabled}
           variant="contained" color="primary" onClick={spinSlots} sx={{ height: '100%' }}>
             Spin
           </Button>

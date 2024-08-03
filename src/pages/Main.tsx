@@ -6,9 +6,11 @@ import SlotMachine from '../components/SlotMachine/SlotMachine';
 import GameStats from '../components/stats/GameStats';
 import CashOut from '../components/general/CashOut';
 import { useGame } from '../contexts/GameContext';
+import { useAlert } from '../contexts/AlertContext';
 
 const MainPage: React.FC = () => {
   const { setTitle } = useAppBar();
+  const { showAlert } = useAlert();
   const { handleNewSession } = useGame();
   const sessionInitialized = useRef(false);
 
@@ -17,6 +19,7 @@ const MainPage: React.FC = () => {
     if (!sessionInitialized.current) {
       sessionInitialized.current = true;
       handleNewSession();
+      showAlert('Welcome to Belagio Casino!', 'success');
     }
   }, []);
 

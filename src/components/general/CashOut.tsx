@@ -3,11 +3,8 @@ import { Button, Box } from '@mui/material';
 import { useGame } from '../../contexts/GameContext';
 
 const CashOut: React.FC = () => {
-  const { credits,  } = useGame();
+  const { credits,areButtonsDisabled,spins,handleCashOut } = useGame();
 
-  const handleCashOut = () => {
-    // cashOut();
-  };
 
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
@@ -15,7 +12,7 @@ const CashOut: React.FC = () => {
         variant="contained"
         color="secondary"
         onClick={handleCashOut}
-        disabled={credits === 0}
+        disabled={credits === 0 || spins ===0 || areButtonsDisabled}
         sx={{
           backgroundColor: '#FFD700',
           color: '#000',
