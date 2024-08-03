@@ -22,7 +22,7 @@ const MainPage: React.FC = () => {
       handleNewSession();
       showAlert('Welcome to Belagio Casino!', 'success');
     }
-  }, []);
+  }, [handleNewSession, setTitle, showAlert]); // Add dependencies here
 
   return (
     <Layout>
