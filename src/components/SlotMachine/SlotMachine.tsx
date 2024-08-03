@@ -1,6 +1,6 @@
 // src/components/SlotMachine.tsx
 import React, { useState } from 'react';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import Slot from './Slot';
 import { useGame } from '../../contexts/GameContext';
 import Confetti from 'react-confetti';
